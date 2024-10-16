@@ -1,6 +1,8 @@
 
 void main() {
   String name = "Willian Medeiros";
+  String race = "Humanos";
+  String classUser = "Guerreiro";
   int age = 24;
   double height = 1.80;
   int lifePoints = 100;
