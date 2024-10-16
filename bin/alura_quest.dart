@@ -16,9 +16,17 @@ void main() {
       '${race} ${age >= 18 ? "maior de idade" : "menor de idade"}, '
       'da classe de ${classUser}, '
       'e ${isMagic ? "sou" : "não sou"} mágico.\n'
-      'Possuo ${lifePoints} de pontos de vida.'
-  ;
-
+      "Minhas habilidades são: ${skills.join(', ')}.\n"
+      'Possuo ${lifePoints} de pontos de vida.\n';
 
   print(infoUser);
+
+  print('- Simulação de batalha - ');
+  print('Pontos de vida: ${lifePoints}');
+  while (lifePoints > 0) {
+    lifePoints = lifePoints - 20;
+    print('Pontos de vida: ${lifePoints}');
+  }
+  print('Sua vida esgotou');
+
 }
