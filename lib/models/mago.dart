@@ -1,8 +1,10 @@
+import 'package:alura_quest/models/combate.dart';
 import 'package:alura_quest/models/personagem.dart';
 
-class Mago extends Personagem {
+class Mago extends Personagem implements Combate {
   int energyPoints;
   String spell; 
+  static const lifePointsWillBeTakenAway = 10;
 
   Mago(
     String name,
@@ -33,5 +35,15 @@ class Mago extends Personagem {
     print('Pontos de Energia: $energyPoints');
     print('Feitiço: $spell');
     print('===========================');
+  }
+
+  @override
+  void attack(Personagem target) {
+    print('$name ataca ${target.name} com magia!');
+    target.lifePoints -= lifePointsWillBeTakenAway; 
+    print('${target.name} perdeu $lifePointsWillBeTakenAway pontos de vida, restando ${target.lifePoints}');
+    if (target.lifePoints <= 0) {
+      print('${target.name} foi derrotado!');
+    }
   }
 }

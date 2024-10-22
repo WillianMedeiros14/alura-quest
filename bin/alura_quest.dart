@@ -1,39 +1,22 @@
 import 'package:alura_quest/models/Mago.dart';
 import 'package:alura_quest/models/guerreiro.dart';
-import 'package:alura_quest/models/personagem.dart';
+
 
 void main() {
-  Personagem personagem = Personagem(
-    'Aragorn',
+Guerreiro guerreiro1 = Guerreiro(
+    'Conan',
     'Humano',
-    'Guerreiro',
+    35,
+    1.90,
+    100,
     30,
-    1.85,
-    100,
-    50,
     false,
-    ['Lutar com espada', 'Liderança', 'Rastrear'],
+    ['Lutar com espada', 'Força Bruta'],
+    'Espada Longa',
+    'Ataque Direto',
   );
 
-  personagem.exibirFicha();
-
-  Guerreiro guerreiroMagico = Guerreiro(
-    'Gandalf',
-    'Espiritual',
-    150,
-    1.80,
-    100,
-    80,
-    true,
-    ['Lutar com espada', 'Controle do fogo'],
-    'Cajado',
-    'Combate Mágico',
-  );
-
-  guerreiroMagico.exibirFicha();
-  guerreiroMagico.atacar();
-
-  Mago mago = Mago(
+  Mago mago1 = Mago(
     'Gandalf',
     'Maya',
     150,
@@ -46,12 +29,9 @@ void main() {
     'Fogo Mágico',
   );
 
-  mago.exibirFicha();
+  guerreiro1.exibirFicha();
+  mago1.exibirFicha();
 
-  mago.castSpell();
-  mago.castSpell();
-  mago.castSpell();
-  mago.castSpell();
-  mago.castSpell();
-  mago.castSpell();
+  mago1.attack(guerreiro1);
+  guerreiro1.attack(mago1);
 }
