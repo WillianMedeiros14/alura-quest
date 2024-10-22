@@ -7,7 +7,7 @@ class Personagem {
   int lifePoints;
   int powerPoints;
   bool isMagic;
-  List<String> habilidades;
+  List<String> skills;
 
   Personagem(
     this.name,
@@ -18,7 +18,7 @@ class Personagem {
     this.lifePoints,
     this.powerPoints,
     this.isMagic,
-    this.habilidades,
+    this.skills,
   );
 
   void exibirFicha() {
@@ -32,7 +32,7 @@ class Personagem {
     print('Pontos de Poder: $powerPoints');
     print('Mágico: ${isMagic ? "Sim" : "Não"}');
     print('Habilidades:');
-    for (var habilidade in habilidades) {
+    for (var habilidade in skills) {
       print(' - $habilidade');
     }
     print('===========================');
