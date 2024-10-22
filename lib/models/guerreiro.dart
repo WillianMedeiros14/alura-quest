@@ -7,7 +7,7 @@ class Guerreiro extends Personagem {
   Guerreiro(
     String name,
     String race,
-    String classUser,
+ 
     int age,
     double height,
     int lifePoints,
@@ -16,7 +16,7 @@ class Guerreiro extends Personagem {
     List<String> skills,
     this.arm,
     this.combatStyle,
-  ) : super(name, race,classUser, age, height, lifePoints, powerPoints, isMagic, skills);
+  ) : super(name, race,"Guerreiro", age, height, lifePoints, powerPoints, isMagic, skills);
  
   void atacar() {
     print('$name ataca com $arm usando o estilo de combate: $combatStyle!');

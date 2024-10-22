@@ -1,3 +1,4 @@
+import 'package:alura_quest/models/Mago.dart';
 import 'package:alura_quest/models/guerreiro.dart';
 import 'package:alura_quest/models/personagem.dart';
 
@@ -19,7 +20,6 @@ void main() {
   Guerreiro guerreiroMagico = Guerreiro(
     'Gandalf',
     'Espiritual',
-    'Mago',
     150,
     1.80,
     100,
@@ -32,4 +32,26 @@ void main() {
 
   guerreiroMagico.exibirFicha();
   guerreiroMagico.atacar();
+
+  Mago mago = Mago(
+    'Gandalf',
+    'Maya',
+    150,
+    1.80,
+    100,
+    80,
+    true,
+    ['Controle do Fogo', 'Iluminar'],
+    5,
+    'Fogo Mágico',
+  );
+
+  mago.exibirFicha();
+
+  mago.castSpell();
+  mago.castSpell();
+  mago.castSpell();
+  mago.castSpell();
+  mago.castSpell();
+  mago.castSpell();
 }
