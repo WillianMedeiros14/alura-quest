@@ -22,8 +22,8 @@ void main() {
     'Maya',
     150,
     1.80,
-    100,
-    80,
+    50,
+    30,
     true,
     ['Controle do Fogo', 'Iluminar'],
     LifeStatus.vivo,
@@ -35,5 +35,9 @@ void main() {
   mago1.exibirFicha();
 
   mago1.attack(guerreiro1);
+  guerreiro1.updateStatus();
   guerreiro1.attack(mago1);
+  mago1.updateStatus();
+  guerreiro1.exibirFicha();
+  mago1.exibirFicha();
 }
