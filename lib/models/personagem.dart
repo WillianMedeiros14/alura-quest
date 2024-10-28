@@ -1,3 +1,5 @@
+import 'package:alura_quest/models/life_status.dart';
+
 class Personagem {
   String name;
   String race;
@@ -8,6 +10,7 @@ class Personagem {
   int powerPoints;
   bool isMagic;
   List<String> skills;
+  LifeStatus lifeStatus;
 
   Personagem(
     this.name,
@@ -19,10 +22,11 @@ class Personagem {
     this.powerPoints,
     this.isMagic,
     this.skills,
+    this.lifeStatus
   );
 
   void exibirFicha() {
-    print('=== Ficha do Personagem ===');
+    print('\n=== Ficha do Personagem ===\n');
     print('Nome: $name');
     print('Raça: $race');
     print('Classe: $classUser');
@@ -31,6 +35,7 @@ class Personagem {
     print('Pontos de Vida: $lifePoints');
     print('Pontos de Poder: $powerPoints');
     print('Mágico: ${isMagic ? "Sim" : "Não"}');
+    print('Estatus de vida: ${lifeStatus.status}');
     print('Habilidades:');
     for (var habilidade in skills) {
       print(' - $habilidade');

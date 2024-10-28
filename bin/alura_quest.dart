@@ -1,9 +1,9 @@
 import 'package:alura_quest/models/Mago.dart';
 import 'package:alura_quest/models/guerreiro.dart';
-
+import 'package:alura_quest/models/life_status.dart';
 
 void main() {
-Guerreiro guerreiro1 = Guerreiro(
+  Guerreiro guerreiro1 = Guerreiro(
     'Conan',
     'Humano',
     35,
@@ -12,6 +12,7 @@ Guerreiro guerreiro1 = Guerreiro(
     30,
     false,
     ['Lutar com espada', 'Força Bruta'],
+    LifeStatus.vivo,
     'Espada Longa',
     'Ataque Direto',
   );
@@ -25,6 +26,7 @@ Guerreiro guerreiro1 = Guerreiro(
     80,
     true,
     ['Controle do Fogo', 'Iluminar'],
+    LifeStatus.vivo,
     5,
     'Fogo Mágico',
   );

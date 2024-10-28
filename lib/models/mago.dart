@@ -1,4 +1,5 @@
 import 'package:alura_quest/models/combate.dart';
+import 'package:alura_quest/models/life_status.dart';
 import 'package:alura_quest/models/personagem.dart';
 
 class Mago extends Personagem implements Combate {
@@ -15,9 +16,10 @@ class Mago extends Personagem implements Combate {
     int powerPoints,
     bool isMagic,
     List<String> skills,
+    LifeStatus lifeStatus,
     this.energyPoints,
     this.spell,
-  ) : super(name, race, 'Mago', age, height, lifePoints, powerPoints, isMagic, skills);
+  ) : super(name, race, 'Mago', age, height, lifePoints, powerPoints, isMagic, skills, lifeStatus);
 
   void castSpell() {
     if (energyPoints > 0) {
