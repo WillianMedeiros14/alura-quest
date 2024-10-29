@@ -1,5 +1,4 @@
 import 'package:alura_quest/models/combate.dart';
-import 'package:alura_quest/models/life_status.dart';
 import 'package:alura_quest/models/personagem.dart';
 
 class Guerreiro extends Personagem implements Combate {
@@ -16,11 +15,12 @@ class Guerreiro extends Personagem implements Combate {
     int powerPoints,
     bool isMagic,
     List<String> skills,
-    LifeStatus lifeStatus,
     this.arm,
     this.combatStyle,
   ) : super(name, race, "Guerreiro", age, height, lifePoints, powerPoints,
-            isMagic, skills, lifeStatus);
+            isMagic, skills) {
+    updateStatus();
+  }
 
   @override
   void exibirFicha() {

@@ -10,27 +10,31 @@ class Personagem {
   int powerPoints;
   bool isMagic;
   List<String> skills;
-  LifeStatus lifeStatus;
+  LifeStatus? _lifeStatus;
 
   Personagem(
-      this.name,
-      this.race,
-      this.classUser,
-      this.age,
-      this.height,
-      this.lifePoints,
-      this.powerPoints,
-      this.isMagic,
-      this.skills,
-      this.lifeStatus);
+    this.name,
+    this.race,
+    this.classUser,
+    this.age,
+    this.height,
+    this.lifePoints,
+    this.powerPoints,
+    this.isMagic,
+    this.skills,
+  ) {
+    updateStatus();
+  }
 
+  LifeStatus get lifeStatus => _lifeStatus!;
+  
   void updateStatus() {
     if (lifePoints > 50) {
-      lifeStatus = LifeStatus.vivo;
+      _lifeStatus = LifeStatus.vivo;
     } else if (lifePoints > 0) {
-      lifeStatus = LifeStatus.ferido;
+      _lifeStatus = LifeStatus.ferido;
     } else {
-      lifeStatus = LifeStatus.derrotado;
+      _lifeStatus = LifeStatus.derrotado;
     }
   }
 
@@ -44,7 +48,7 @@ class Personagem {
     print('Pontos de Vida: $lifePoints');
     print('Pontos de Poder: $powerPoints');
     print('Mágico: ${isMagic ? "Sim" : "Não"}');
-    print('Estatus de vida: ${lifeStatus.status}');
+    print('Estatus de vida: ${_lifeStatus?.status}');
     print('Habilidades:');
     for (var habilidade in skills) {
       print(' - $habilidade');
