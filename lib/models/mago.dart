@@ -1,11 +1,13 @@
 import 'package:alura_quest/models/combate.dart';
 import 'package:alura_quest/models/life_status.dart';
 import 'package:alura_quest/models/personagem.dart';
+import 'package:alura_quest/models/spells.dart';
 
 class Mago extends Personagem implements Combate {
   int energyPoints;
   String spell; 
   static const lifePointsWillBeTakenAway = 10;
+ Map<int, MapEntry<Spells, int>> spells;
 
   Mago(
     String name,
@@ -19,7 +21,9 @@ class Mago extends Personagem implements Combate {
     LifeStatus lifeStatus,
     this.energyPoints,
     this.spell,
-  ) : super(name, race, 'Mago', age, height, lifePoints, powerPoints, isMagic, skills, lifeStatus);
+  ) : 
+  spells = {},
+  super(name, race, 'Mago', age, height, lifePoints, powerPoints, isMagic, skills, lifeStatus);
 
   void castSpell() {
     if (energyPoints > 0) {
@@ -47,5 +51,17 @@ class Mago extends Personagem implements Combate {
     if (target.lifePoints <= 0) {
       print('${target.name} foi derrotado!');
     }
+  }
+
+  addSpell({required Spells spell, required int valueSpell } ){
+    int keyId = spells.isNotEmpty ? spells.keys.last + 1 : 1;
+    spells[keyId] = MapEntry(spell, valueSpell);
+  }
+
+  void showAllSpells() {
+    print('Todos os Feitiços:');
+    spells.forEach((id, entry) {
+      print('ID: $id, Tipo: ${entry.key.spell}, Valor: ${entry.value}, Descrição: ${entry.key.description}');
+    });
   }
 }

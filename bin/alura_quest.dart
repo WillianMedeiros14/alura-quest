@@ -1,6 +1,7 @@
 import 'package:alura_quest/models/Mago.dart';
 import 'package:alura_quest/models/guerreiro.dart';
 import 'package:alura_quest/models/life_status.dart';
+import 'package:alura_quest/models/spells.dart';
 
 void main() {
   Guerreiro guerreiro1 = Guerreiro(
@@ -33,6 +34,11 @@ void main() {
 
   guerreiro1.exibirFicha();
   mago1.exibirFicha();
+  mago1.addSpell(spell: Spells.gelo, valueSpell: 20);
+  mago1.addSpell(spell: Spells.fogo, valueSpell: 30);
+  mago1.addSpell(spell: Spells.relampago, valueSpell: 40);
+
+  mago1.showAllSpells();
 
   mago1.attack(guerreiro1);
   guerreiro1.updateStatus();
