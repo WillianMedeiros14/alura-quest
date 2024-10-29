@@ -6,7 +6,7 @@ class Mago extends Personagem implements Combate {
   int energyPoints;
   String spell;
   static const lifePointsWillBeTakenAway = 10;
-  Map<int, MapEntry<Spells, int>> spells;
+  Map<int, MapEntry<Spells, int>> _spells;
 
   Mago(
     String name,
@@ -19,11 +19,13 @@ class Mago extends Personagem implements Combate {
     List<String> skills,
     this.energyPoints,
     this.spell,
-  )   : spells = {},
+  )   : _spells = {},
         super(name, race, 'Mago', age, height, lifePoints, powerPoints, isMagic,
             skills) {
     updateStatus();
   }
+
+  Map<int, MapEntry<Spells, int>> get spells => _spells;
 
   void castSpell() {
     if (energyPoints > 0) {
@@ -54,14 +56,26 @@ class Mago extends Personagem implements Combate {
     }
   }
 
-  addSpell({required Spells spell, required int valueSpell}) {
-    int keyId = spells.isNotEmpty ? spells.keys.last + 1 : 1;
-    spells[keyId] = MapEntry(spell, valueSpell);
+  void addSpell({required Spells spell, required int valueSpell}) {
+    int keyId = _spells.isNotEmpty ? _spells.keys.last + 1 : 1;
+    _spells[keyId] = MapEntry(spell, valueSpell);
+  }
+
+  void updateSpellValue({required int id, Spells? spell, int? newValue}) {
+    if (_spells.containsKey(id)) {
+      Spells currentSpell = spell ?? _spells[id]!.key;
+      int currentValue = newValue ?? _spells[id]!.value;
+
+      _spells[id] = MapEntry(currentSpell, currentValue);
+      print('Feitiço com ID $id atualizado.');
+    } else {
+      print('Feitiço com ID $id não encontrado.');
+    }
   }
 
   void showAllSpells() {
     print('Todos os Feitiços:');
-    spells.forEach((id, entry) {
+    _spells.forEach((id, entry) {
       print(
           'ID: $id, Tipo: ${entry.key.spell}, Valor: ${entry.value}, Descrição: ${entry.key.description}');
     });
