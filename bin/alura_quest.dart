@@ -45,4 +45,6 @@ void main() {
   mago1.updateStatus();
   guerreiro1.exibirFicha();
   mago1.exibirFicha();
+
+  
 }
